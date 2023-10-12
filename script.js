@@ -11,14 +11,12 @@ let computerScore = 0;
 /// GLOBAL ///
 
 
-// Predetermine the computers choice from the array.
+
 function getComputerChoice (cpuChoice) {
-    
-    // We declare a new variable called 'randomChoice' and use the 'options' array with a math function to randomize the choice.
+
 
     cpuChoice = options[Math.floor(Math.random()*options.length)];
 
-    // We return the result of the randomizing to the variable. This displays a randomised choice from our 'options' array.
     return cpuChoice;
 }
 
@@ -29,29 +27,29 @@ function getMyChoice(myChoice) {
     
 }
 
-function playRound(playerSelection,computerSelection) {
+function playRound(cpuChoice,myChoice) {
 
-    computerSelection = getComputerChoice();
-    playerSelection = getMyChoice();
+    cpuChoice = getComputerChoice();
+    myChoice = getMyChoice();
 
-    if (playerSelection.toUpperCase() == "PAPER" && computerSelection.toUpperCase() == "SCISSORS") {
-        console.log("You lose this round! Scissors beat paper...");
+    if (myChoice.toUpperCase() == "PAPER" && cpuChoice.toUpperCase() == "SCISSORS") {
+        console.log(`You lose this round! You: ${myChoice} CPU: ${cpuChoice}.`);
         computerScore++;
-     } else if (playerSelection.toUpperCase() == "SCISSORS" && computerSelection.toUpperCase() == "ROCK") {
-        console.log("You lose this round! Rock beats scissors...");
+     } else if (myChoice.toUpperCase() == "SCISSORS" && cpuChoice.toUpperCase() == "ROCK") {
+        console.log(`You lose this round! You: ${myChoice} CPU: ${cpuChoice}.`);
         computerScore++;
 
-     } else if (playerSelection.toUpperCase() == "ROCK" && computerSelection.toUpperCase() == "PAPER") {
-        console.log("You lose this round! Paper beats rock...");
+     } else if (myChoice.toUpperCase() == "ROCK" && cpuChoice.toUpperCase() == "PAPER") {
+        console.log(`You lose this roropund! You: ${myChoice} CPU: ${cpuChoice}.`);
         computerScore++;
         
      } 
-      else if (playerSelection == computerSelection) {
-        console.log(`It's a tie! You picked ${playerSelection} and the CPU picked ${computerSelection}`)
+      else if (myChoice == cpuChoice) {
+        console.log(`It's a tie! You: ${myChoice} and the CPU ${cpuChoice}`)
       }
      
      else  {
-        console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+        console.log(`You win this round! You: ${myChoice} CPU: ${cpuChoice}`);
         playerScore++;
      }
 }
@@ -61,10 +59,10 @@ function newGame() {
     playRound();
 
     if (playerScore > computerScore) {
-        console.log("You win! Your score is: "+ playerScore + " The computers score is: " + computerScore);
+        console.log(`You win! Your score: ${playerScore}. CPU score: ${computerScore}.`);
         
     } else if (playerScore < computerScore) {
-        console.log("You lose! Your score is: "+ playerScore + " The computers score is: " + computerScore);
+        console.log(`You lose! Your score: ${playerScore}. CPU score: ${computerScore}.`);
         
     } else {
         console.log("It's a tie!");
