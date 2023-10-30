@@ -27,7 +27,7 @@ function getMyChoice(myChoice) {
     
 }
 
-function playRound(cpuChoice,myChoice) {
+function playRound (cpuChoice,myChoice) {
 
     cpuChoice = getComputerChoice();
     myChoice = getMyChoice();
